@@ -3,6 +3,10 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\CandidateAssessment;
+use App\Models\CandidateExperience;
+use App\Models\CandidateQualification;
+use App\Models\CandidateSkill;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -42,4 +46,29 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function role(){
+        return $this->belongsTo(Role::class);
+    }
+
+    public function company(){
+        return $this->belongsTo(Company::class);
+    }
+
+    public function candidateSkills(){
+        return $this->hasMany(CandidateSkill::class);
+    }
+
+    public function candidateQualifications(){
+        return $this->hasMany(CandidateQualification::class);
+    }
+
+    public function candidateExperience(){
+        return $this->hasMany(CandidateExperience::class);
+    }
+
+    public function candidateAssessment(){
+        return $this->hasOne(CandidateAssessment::class);
+    }
+
 }
