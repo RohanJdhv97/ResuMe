@@ -7,12 +7,15 @@ use App\Models\CandidateAssessment;
 use App\Models\CandidateExperience;
 use App\Models\CandidateQualification;
 use App\Models\CandidateSkill;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Models\Contracts\HasName;
+use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser, HasName
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -22,9 +25,11 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
         'email',
-        'password',
+        'phone',
+        'role_id',
+        'company_id'
     ];
 
     /**
@@ -69,6 +74,20 @@ class User extends Authenticatable
 
     public function candidateAssessment(){
         return $this->hasOne(CandidateAssessment::class);
+    }
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return true;
+    }
+    public function getFilamentName(): string
+    {
+        return $this->fullName;
+    }
+
+    public function getFullNameAttribute()
+    {
+        return "{$this->first_name} {$this->last_name}";
     }
 
 }
