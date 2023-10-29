@@ -13,7 +13,7 @@ class CompanyQualificationMasterPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -21,7 +21,7 @@ class CompanyQualificationMasterPolicy
      */
     public function view(User $user, CompanyQualificationMaster $companyQualificationMaster): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -29,7 +29,7 @@ class CompanyQualificationMasterPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -37,7 +37,7 @@ class CompanyQualificationMasterPolicy
      */
     public function update(User $user, CompanyQualificationMaster $companyQualificationMaster): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -45,7 +45,7 @@ class CompanyQualificationMasterPolicy
      */
     public function delete(User $user, CompanyQualificationMaster $companyQualificationMaster): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -53,7 +53,7 @@ class CompanyQualificationMasterPolicy
      */
     public function restore(User $user, CompanyQualificationMaster $companyQualificationMaster): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -61,6 +61,6 @@ class CompanyQualificationMasterPolicy
      */
     public function forceDelete(User $user, CompanyQualificationMaster $companyQualificationMaster): bool
     {
-        //
+        return true;
     }
 }

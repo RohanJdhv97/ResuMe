@@ -13,7 +13,7 @@ class CandidateQualificationPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -21,7 +21,7 @@ class CandidateQualificationPolicy
      */
     public function view(User $user, CandidateQualification $CandidateQualification): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -29,7 +29,7 @@ class CandidateQualificationPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -37,7 +37,7 @@ class CandidateQualificationPolicy
      */
     public function update(User $user, CandidateQualification $CandidateQualification): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -45,7 +45,7 @@ class CandidateQualificationPolicy
      */
     public function delete(User $user, CandidateQualification $CandidateQualification): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -53,7 +53,7 @@ class CandidateQualificationPolicy
      */
     public function restore(User $user, CandidateQualification $CandidateQualification): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -61,6 +61,6 @@ class CandidateQualificationPolicy
      */
     public function forceDelete(User $user, CandidateQualification $CandidateQualification): bool
     {
-        //
+        return true;
     }
 }

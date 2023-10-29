@@ -9,6 +9,12 @@ class CompanyQualificationMaster extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'qualification',
+        'threshold',
+        'company_id'
+    ];
+
     public function company(){
         return $this->belongsTo(Company::class);
     }
