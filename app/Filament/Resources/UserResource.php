@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\UserResource\Pages;
 use App\Filament\Resources\UserResource\RelationManagers;
+use App\Filament\Resources\UserResource\RelationManagers\CandidateExperienceRelationManager;
 use App\Filament\Resources\UserResource\RelationManagers\CandidateQualificationRelationManager;
 use App\Filament\Resources\UserResource\RelationManagers\CandidateSkillsRelationManager;
 use App\Models\Role;
@@ -146,7 +147,8 @@ class UserResource extends Resource
     {
         return [
             CandidateSkillsRelationManager::class,
-            CandidateQualificationRelationManager::class
+            CandidateQualificationRelationManager::class,
+            CandidateExperienceRelationManager::class
         ];
     }
 

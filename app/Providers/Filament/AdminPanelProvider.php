@@ -2,6 +2,8 @@
 
 namespace App\Providers\Filament;
 
+use Awcodes\FilamentGravatar\GravatarPlugin;
+use Awcodes\FilamentGravatar\GravatarProvider;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -17,6 +19,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Njxqlus\FilamentProgressbar\FilamentProgressbarPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -53,6 +56,14 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+            ])
+            ->defaultAvatarProvider(GravatarProvider::class)
+            ->plugins([
+                FilamentProgressbarPlugin::make()->color('#29b'),
+                GravatarPlugin::make()
+                    ->default('robohash')
+                    ->size(400)
+                    ->rating('pg'),
             ]);
     }
 }

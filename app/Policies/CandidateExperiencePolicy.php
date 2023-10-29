@@ -2,6 +2,7 @@
 
 namespace App\Policies;
 
+use App\Models\CandidateExperience;
 use Illuminate\Auth\Access\Response;
 use App\Models\CnadidateExperience;
 use App\Models\User;
@@ -13,15 +14,15 @@ class CandidateExperiencePolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, CnadidateExperience $cnadidateExperience): bool
+    public function view(User $user, CandidateExperience $cnadidateExperience): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -29,38 +30,38 @@ class CandidateExperiencePolicy
      */
     public function create(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, CnadidateExperience $cnadidateExperience): bool
+    public function update(User $user, CandidateExperience $cnadidateExperience): bool
     {
-        //
+        return true;
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, CnadidateExperience $cnadidateExperience): bool
+    public function delete(User $user, CandidateExperience $cnadidateExperience): bool
     {
-        //
+        return true;
     }
 
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, CnadidateExperience $cnadidateExperience): bool
+    public function restore(User $user, CandidateExperience $cnadidateExperience): bool
     {
-        //
+        return true;
     }
 
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, CnadidateExperience $cnadidateExperience): bool
+    public function forceDelete(User $user, CandidateExperience $cnadidateExperience): bool
     {
-        //
+        return true;
     }
 }
