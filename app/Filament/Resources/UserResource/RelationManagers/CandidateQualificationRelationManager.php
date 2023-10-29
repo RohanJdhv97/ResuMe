@@ -12,35 +12,34 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class CandidateSkillsRelationManager extends RelationManager
+class CandidateQualificationRelationManager extends RelationManager
 {
-    protected static string $relationship = 'candidateSkills';
+    protected static string $relationship = 'candidateQualification';
 
     public function form(Form $form): Form
     {
         return $form
             ->schema([
-                TextInput::make('skill')
+                TextInput::make('qualification')
                     ->required()
                     ->maxLength(255),
-                TextInput::make('score')
+                TextInput::make('scored')
+                    ->suffix('%')
                     ->maxLength(255)
-                    ->default(0)
-                    ->suffix('%'),
+                    ->default(0),
             ]);
     }
 
     public function table(Table $table): Table
     {
         return $table
-            ->recordTitleAttribute('skill')
+            ->recordTitleAttribute('qualification')
             ->columns([
-                TextColumn::make('skill')
+                TextColumn::make('qualification')
                     ->placeholder('N/A')
-                    ->label('Skills'),
-                TextColumn::make('score')
+                    ->label('Qualifications'),
+                TextColumn::make('scored')
                     ->placeholder('N/A')
-                    ->label('Scored')
                     ->suffix('%'),
             ])
             ->filters([

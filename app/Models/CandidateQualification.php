@@ -9,6 +9,12 @@ class CandidateQualification extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'qualification',
+        'scored',
+        'user_id'
+    ];
+
     public function candidate(){
         return $this->belongsTo(User::class);
     }

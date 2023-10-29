@@ -66,7 +66,7 @@ class User extends Authenticatable implements FilamentUser, HasName
         return $this->hasMany(CandidateSkill::class);
     }
 
-    public function candidateQualifications(){
+    public function candidateQualification(){
         return $this->hasMany(CandidateQualification::class);
     }
 
