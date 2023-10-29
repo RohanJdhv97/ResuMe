@@ -9,6 +9,12 @@ class CompanySkillMaster extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'cutoff',
+        'company_id'
+    ];
+
     public function company(){
         return $this->belongsTo(Company::class);
     }
