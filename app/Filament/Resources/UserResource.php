@@ -13,6 +13,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -60,7 +61,6 @@ class UserResource extends Resource
                     ]),
                 Select::make('role_id')
                     ->required()
-                    ->relationship('name','id')
                     ->label('Role')
                     ->options(fn () => Role::whereNot([
                         ['name','=','Super Admin'],
@@ -90,7 +90,16 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('first_name')
+                    ->label('First Name')
+                    ->searchable()
+                    ->placeholder('No description.')
+                    ->sortable(),
+                TextColumn::make('last_name')
+                    ->label('First Name')
+                    ->placeholder('N/A')
+                    ->searchable()
+                    ->sortable()
             ])
             ->filters([
                 //
