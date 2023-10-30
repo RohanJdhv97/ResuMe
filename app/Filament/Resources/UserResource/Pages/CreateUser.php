@@ -31,8 +31,6 @@ class CreateUser extends CreateRecord
 
     protected function afterCreate(): void
     {
-        $tempPath = env('AWS_URL') . '/' .$this->record->url;
-
         // Setup AWS S3 Client
         $s3Client = new S3Client([
             'version' => 'latest',
@@ -46,7 +44,7 @@ class CreateUser extends CreateRecord
         // Fetch the PDF file from S3
         $result = $s3Client->getObject([
             'Bucket' => env('AWS_BUCKET'),
-            'Key' => $tempPath // Replace with your S3 file path
+            'Key' => $this->record->url // Replace with your S3 file path
         ]);
 
         // Get the content of the PDF
