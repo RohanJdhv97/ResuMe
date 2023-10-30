@@ -20,7 +20,7 @@ class CompanyQualificationResource extends Resource
 {
     protected static ?string $model = CompanyQualificationMaster::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-academic-cap';
 
     protected static ?string $modelLabel = 'Company Qualifications';
 

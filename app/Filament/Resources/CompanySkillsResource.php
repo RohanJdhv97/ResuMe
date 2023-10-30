@@ -20,7 +20,7 @@ class CompanySkillsResource extends Resource
 {
     protected static ?string $model = CompanySkillMaster::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-m-code-bracket';
     
     protected static ?string $modelLabel = 'Company Skills';
 
