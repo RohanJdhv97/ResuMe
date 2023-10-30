@@ -20,7 +20,7 @@ class ListCompanySkills extends ListRecords
             Actions\CreateAction::make(),
             ExcelImportAction::make()
                 ->color('primary'),
-                ExportAction::make()
+            ExportAction::make()
                 ->exports([
                     ExcelExport::make()
                         ->fromForm()
