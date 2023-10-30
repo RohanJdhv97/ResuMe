@@ -22,7 +22,7 @@ return new class extends Migration
             $table->boolean('screening_status')->nullable()->default(false);
             $table->boolean('assesment_status')->nullable()->default(false);
             $table->boolean('interview_status')->nullable()->default(false);
-            $table->string('url')->nullable();
+            $table->longText('url')->nullable();
             $table->rememberToken();
             $table->unsignedBigInteger('role_id');
             $table->unsignedBigInteger('company_id');

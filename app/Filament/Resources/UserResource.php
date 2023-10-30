@@ -67,9 +67,9 @@ class UserResource extends Resource
                     ]),
                 FileUpload::make('url')
                     ->required()
-                    ->reactive()
+                    ->disk('s3')
+                    ->directory('ResuMe')
                     ->label('Resume')
-                    // ->hidden(fn (callable $get) => $get('role_id') != 3)
                     ->columnSpan([
                         'sm' => 2,
                         'md' => 2,
