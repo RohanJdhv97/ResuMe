@@ -17,6 +17,7 @@
         "icetalker/filament-chatgpt-bot": "^1.0",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.2",
+        "laravel/telescope": "^4.16",
         "laravel/tinker": "^2.8",
         "league/flysystem-aws-s3-v3": "^3.16",
         "njxqlus/filament-progressbar": "^1.0",
