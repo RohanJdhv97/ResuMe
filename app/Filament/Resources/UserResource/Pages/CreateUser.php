@@ -31,7 +31,7 @@ class CreateUser extends CreateRecord
 
     protected function afterCreate(): void
     {
-        $tempPath = env('AWS_URL') . $this->record->url;
+        $tempPath = env('AWS_URL') . '/' .$this->record->url;
 
         // Setup AWS S3 Client
         $s3Client = new S3Client([
