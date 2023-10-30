@@ -9,6 +9,7 @@ use Filament\Resources\Pages\CreateRecord;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Illuminate\Support\Collection;
 use Smalot\PdfParser\Parser;
 
 class CreateUser extends CreateRecord
@@ -101,5 +102,32 @@ class CreateUser extends CreateRecord
                 'user_id' => $this->record->id
             ]);
         }
+    }
+
+    public function convertToObjects(string $data): Collection
+    {
+        // Match the inner arrays
+        preg_match_all("/\[(.*?)\]/s", $data, $matches);
+
+        $array = [];
+
+        foreach ($matches[1] as $match) {
+            // Split the matched string by comma but not within single quotes
+            $items = preg_split("/,(?=(?:[^']*'[^']*')*[^']*$)/", $match);
+            $itemArray = [];
+
+            foreach ($items as $item) {
+                // Extract key-value pairs
+                preg_match("/'([^']+)'\s*=>\s*'([^']+)'/", $item, $kv);
+                $itemArray[$kv[1]] = $kv[2];
+            }
+
+            $array[] = $itemArray;
+        }
+
+        // Convert to Laravel collection of objects
+        return collect($array)->map(function ($item) {
+            return (object) $item;
+        });
     }
 }
